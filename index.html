@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Contact Form</title>
+    <title>Login to Your Account</title>
     <style>
         h2, h3 {
             color: #2c3e50;
@@ -22,55 +22,11 @@
     </style>
 </head>
 <body>
-    <h2>Contact Us</h2>
-    <h3>Please fill out the form below to get in touch with our team.</h3>
+    <h2>Log In to Your Account</h2>
+    <h3>Please enter your credentials below</h3>
     <br>
     
-    <!-- Contact Form -->
-    <form action="#" method="post">
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required><br><br>
-        
-        <label for="address">Address:</label>
-        <textarea id="address" name="address" rows="3"></textarea><br><br>
-        
-        <label>Payment Method:</label><br>
-        <input type="radio" id="visa" name="payment_method" value="Visa" required>
-        <label for="visa">Visa</label>
-        <input type="radio" id="mastercard" name="payment_method" value="MasterCard">
-        <label for="mastercard">MasterCard</label>
-        <input type="radio" id="amex" name="payment_method" value="Amex">
-        <label for="amex">American Express</label>
-        <input type="radio" id="discover" name="payment_method" value="Discover">
-        <label for="discover">Discover</label><br><br>
-        
-        <label for="card_number">Credit Card Number:</label>
-        <input type="text" id="card_number" name="card_number" required><br><br>
-        
-        <label for="inquiry_type">Inquiry Type:</label>
-        <select id="inquiry_type" name="inquiry_type" required>
-            <option value="" selected disabled>Select an option</option>
-            <option value="general">General Information</option>
-            <option value="support">Customer Support</option>
-            <option value="sales">Sales Inquiry</option>
-            <option value="feedback">Feedback</option>
-            <option value="other">Other</option>
-        </select><br><br>
-        
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4"></textarea><br><br>
-        
-        <button type="submit">Submit Form</button>
-    </form>
-    
-    <!-- Login Section -->
-    <h2>Log In to Your Account</h2>
+    <!-- Login Form -->
     <form action="#" method="post">
         <label for="login_email">Email:</label>
         <input type="email" id="login_email" name="login_email" required><br><br>
@@ -80,5 +36,7 @@
         
         <button type="submit">Log In</button>
     </form>
+    
+    <p>Need to contact us? <a href="contact.html">Go to contact form</a></p>
 </body>
 </html>
