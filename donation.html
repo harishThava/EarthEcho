@@ -47,7 +47,7 @@
             margin: 10px auto; 
         }
 
-       /* Center and style the custom amount input */
+    /* Center and style the custom amount input */
 .custom-amount-container {
     text-align: center;
     margin-top: 10px;
@@ -58,20 +58,23 @@
 
 #custom_amount {
     display: none;
-    width: 100px; /* Make the input box smaller */
+    width: 100px; /* Smaller width */
     padding: 5px;
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-top: 5px;
-    appearance: none; /* Removes the spinner arrows */
-    -moz-appearance: textfield; /* Removes arrows for Firefox */
+    appearance: textfield; /* Remove arrows in most browsers */
+    -moz-appearance: textfield; /* Firefox fix */
 }
 
 #custom_amount::-webkit-inner-spin-button,
 #custom_amount::-webkit-outer-spin-button {
-    display: none; /* Removes arrows for Chrome & Safari */
+    display: none; /* Removes arrows for Chrome, Safari */
+    -webkit-appearance: none;
+    margin: 0;
 }
+
 
         }
     </style>
