@@ -27,7 +27,7 @@
             background-color: #2980b9;
         }
 
-        /* Style the link */
+
         a {
             color: #2c3e50;
             text-decoration: none;
@@ -38,7 +38,7 @@
             text-decoration: underline;
         }
 
-        /* Style the image */
+
         .donation-image {
             width: 100px; 
             height: 100px; 
@@ -46,7 +46,7 @@
             margin: 10px auto; 
         }
 
-        /* Center and style the custom amount input */
+
         .custom-amount-container {
             text-align: center;
             margin-top: 10px;
@@ -58,7 +58,7 @@
 </head>
 <body>
 
-    <!-- Donation Image -->
+
     <img src="https://w7.pngwing.com/pngs/178/627/png-transparent-donation-computer-icons-charitable-organization-donate-miscellaneous-text-trademark.png" 
          alt="Donation Image" class="donation-image">
 
@@ -67,7 +67,7 @@
         <h3>Any donation is appreciated!</h3>
         <br>
 
-        <!-- Contact/Payment Form -->
+
         <form action="#" method="post">
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required><br><br>
@@ -91,7 +91,7 @@
             <label for="card_number">Credit Card Number:</label>
             <input type="text" id="card_number" name="card_number" required><br><br>
 
-            <!-- Donation Amount -->
+
             <label for="donation_amount">Donation Amount:</label>
             <select id="donation_amount" name="donation_amount" required>
                 <option value="" selected disabled>Select an amount</option>
@@ -102,7 +102,7 @@
                 <option value="custom">Custom Amount</option>
             </select><br><br>
 
-            <!-- Custom Amount Input (Hidden by Default) -->
+
             <div class="custom-amount-container">
                 <label for="custom_amount" id="custom_amount_label" style="display:none;">Enter Custom Amount:</label>
                 <input type="text" id="custom_amount" name="custom_amount" inputmode="numeric" pattern="[0-9]*" style="display:none;">
@@ -120,7 +120,7 @@
     </div>
 
     <script>
-        // Show custom amount input if "Custom Amount" is selected
+
         document.getElementById("donation_amount").addEventListener("change", function() {
             if (this.value === "custom") {
                 document.getElementById("custom_amount_label").style.display = "block";
