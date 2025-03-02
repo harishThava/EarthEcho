@@ -71,7 +71,17 @@
     </form>
 
     <p>Already have an account? <a href="index.html">Log in here</a></p>
-
+ document.getElementById("donation_amount").addEventListener("change", function() {
+            if (this.value === "custom") {
+                document.getElementById("custom_amount_label").style.display = "block";
+                document.getElementById("custom_amount").style.display = "block";
+                document.getElementById("custom_amount").required = true;
+            } else {
+                document.getElementById("custom_amount_label").style.display = "none";
+                document.getElementById("custom_amount").style.display = "none";
+                document.getElementById("custom_amount").required = false;
+            }
+        });
     </script>
 </body>
 </html>
