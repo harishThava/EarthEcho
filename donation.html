@@ -47,35 +47,13 @@
             margin: 10px auto; 
         }
 
-    /* Center and style the custom amount input */
-.custom-amount-container {
-    text-align: center;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#custom_amount {
-    display: none;
-    width: 100px; /* Smaller width */
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 5px;
-    appearance: textfield; /* Remove arrows in most browsers */
-    -moz-appearance: textfield; /* Firefox fix */
-}
-
-#custom_amount::-webkit-inner-spin-button,
-#custom_amount::-webkit-outer-spin-button {
-    display: none; /* Removes arrows for Chrome, Safari */
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-
+        /* Center and style the custom amount input */
+        .custom-amount-container {
+            text-align: center;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     </style>
 </head>
@@ -128,11 +106,11 @@
             <!-- Custom Amount Input (Hidden by Default) -->
             <div class="custom-amount-container">
                 <label for="custom_amount" id="custom_amount_label" style="display:none;">Enter Custom Amount:</label>
-                <input type="number" id="custom_amount" name="custom_amount" min="1" step="1" style="display:none;">
+                <input type="text" id="custom_amount" name="custom_amount" inputmode="numeric" pattern="[0-9]*" style="display:none;">
             </div><br>
 
             <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4"></textarea><br><br>
+            <textarea id="message" name="message" rows="4" cols="50" style="overflow: hidden;"></textarea><br><br>
             
             <button type="submit">Submit Form</button>
         </form>
