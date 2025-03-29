@@ -7,14 +7,11 @@ public class Grayscale implements Converter {
 
     @Override
     public void convert(String inputFileName, String outputFileName) throws IOException {
-        System.out.println("🧪 Trying to load image: " + inputFileName);
         File inputFile = new File(inputFileName);
-        System.out.println("📁 Absolute path: " + inputFile.getAbsolutePath());
-        System.out.println("📦 Exists: " + inputFile.exists());
 
         BufferedImage image = ImageIO.read(inputFile);
         if (image == null) {
-            System.out.println("❌ ImageIO.read() returned null — file may be unreadable or unsupported format.");
+            System.out.println("ImageIO.read() returned null — file may be unreadable or in an unsupported format.");
             return;
         }
 
@@ -36,6 +33,5 @@ public class Grayscale implements Converter {
         }
 
         ImageIO.write(image, "png", new File(outputFileName));
-        System.out.println("✅ Saved: " + outputFileName);
     }
 }
