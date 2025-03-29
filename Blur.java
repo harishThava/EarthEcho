@@ -14,7 +14,7 @@ public class Blur extends Converter {
 
         BufferedImage blurred = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
-        int kernelSize = 50; 
+        int kernelSize = 100; 
         int radius = kernelSize / 2;
 
         for (int y = 0; y < height; y++) {
