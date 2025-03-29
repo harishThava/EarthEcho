@@ -1,32 +1,41 @@
 import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import javax.imageio.ImageIO;
 
-public class Grayscale extends Converter {
+public class Grayscale implements Converter {
+
     @Override
     public void convert(String inputFileName, String outputFileName) throws IOException {
-        File input = new File(inputFileName);
-        BufferedImage original = ImageIO.read(input);
+        System.out.println("🧪 Trying to load image: " + inputFileName);
+        File inputFile = new File(inputFileName);
+        System.out.println("📁 Absolute path: " + inputFile.getAbsolutePath());
+        System.out.println("📦 Exists: " + inputFile.exists());
 
-        int width = original.getWidth();
-        int height = original.getHeight();
+        BufferedImage image = ImageIO.read(inputFile);
+        if (image == null) {
+            System.out.println("❌ ImageIO.read() returned null — file may be unreadable or unsupported format.");
+            return;
+        }
 
-        BufferedImage output = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        int width = image.getWidth();
+        int height = image.getHeight();
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                int pixel = original.getRGB(x, y);
-                ARGB color = new ARGB(pixel);
+                int rgb = image.getRGB(x, y);
+                int a = (rgb >> 24) & 0xff;
+                int r = (rgb >> 16) & 0xff;
+                int g = (rgb >> 8) & 0xff;
+                int b = rgb & 0xff;
 
-                int avg = (color.red + color.green + color.blue) / 3;
-                ARGB gray = new ARGB(color.alpha, avg, avg, avg);
-
-                output.setRGB(x, y, gray.toInt());
+                int gray = (r + g + b) / 3;
+                int newRGB = (a << 24) | (gray << 16) | (gray << 8) | gray;
+                image.setRGB(x, y, newRGB);
             }
         }
 
-        File outFile = new File(outputFileName);
-        ImageIO.write(output, "PNG", outFile);
+        ImageIO.write(image, "png", new File(outputFileName));
+        System.out.println("✅ Saved: " + outputFileName);
     }
 }
