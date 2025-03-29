@@ -1,20 +1,23 @@
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.io.IOException;
-
 public class Blur extends Converter {
+    private static final int KERNEL_SIZE = 15; // smaller kernel
+    private static final int REPEAT = 3; // repeat 3 times
+
     @Override
     public void convert(String inputFileName, String outputFileName) throws IOException {
         File input = new File(inputFileName);
-        BufferedImage original = ImageIO.read(input);
+        BufferedImage image = ImageIO.read(input);
 
+        for (int i = 0; i < REPEAT; i++) {
+            image = applyBlur(image, KERNEL_SIZE);
+        }
+
+        ImageIO.write(image, "png", new File(outputFileName));
+    }
+
+    private BufferedImage applyBlur(BufferedImage original, int kernelSize) {
         int width = original.getWidth();
         int height = original.getHeight();
-
         BufferedImage blurred = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-
-        int kernelSize = 100; 
         int radius = kernelSize / 2;
 
         for (int y = 0; y < height; y++) {
@@ -30,7 +33,6 @@ public class Blur extends Converter {
                         if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
                             int pixel = original.getRGB(nx, ny);
                             ARGB color = new ARGB(pixel);
-
                             redSum += color.red;
                             greenSum += color.green;
                             blueSum += color.blue;
@@ -50,7 +52,6 @@ public class Blur extends Converter {
             }
         }
 
-        File output = new File(outputFileName);
-        ImageIO.write(blurred, "png", output);
+        return blurred;
     }
 }
