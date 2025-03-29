@@ -14,13 +14,16 @@ public class Blur extends Converter {
 
         BufferedImage blurred = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
+        int kernelSize = 7; // You can increase this for even stronger blur
+        int radius = kernelSize / 2;
+
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 int redSum = 0, greenSum = 0, blueSum = 0, alphaSum = 0;
                 int count = 0;
 
-                for (int dy = -1; dy <= 1; dy++) {
-                    for (int dx = -1; dx <= 1; dx++) {
+                for (int dy = -radius; dy <= radius; dy++) {
+                    for (int dx = -radius; dx <= radius; dx++) {
                         int nx = x + dx;
                         int ny = y + dy;
 
@@ -48,6 +51,6 @@ public class Blur extends Converter {
         }
 
         File output = new File(outputFileName);
-        ImageIO.write(blurred, "PNG", output);
+        ImageIO.write(blurred, "png", output);
     }
 }
