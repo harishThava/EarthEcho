@@ -1,1 +1,1 @@
-# Pixle craft
+# Pixel craft
