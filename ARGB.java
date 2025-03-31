@@ -1,6 +1,7 @@
 public class ARGB {
     public int alpha, red, green, blue;
 
+    //ntakes a single int representing a pixel's ARGB value
     public ARGB(int pixel) {
         this.alpha = (pixel >> 24) & 0xff;
         this.red   = (pixel >> 16) & 0xff;
@@ -16,6 +17,7 @@ public class ARGB {
     }
 
     public int toInt() {
+        //  combine each color component back into one 32-bit integer
         return (this.alpha << 24) | (this.red << 16) | (this.green << 8) | blue;
     }
 }
