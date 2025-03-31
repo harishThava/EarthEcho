@@ -3,7 +3,10 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
+
 public class Blur extends Converter {
+
+    
     @Override
     public void convert(String inputFileName, String outputFileName) throws IOException {
         File input = new File(inputFileName);
@@ -12,10 +15,12 @@ public class Blur extends Converter {
         int width = original.getWidth();
         int height = original.getHeight();
 
+        
         BufferedImage blurred = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
-        int blurLength = 8000; 
+        int blurLength = 1000; 
 
+        
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 int redSum = 0, greenSum = 0, blueSum = 0, alphaSum = 0;
